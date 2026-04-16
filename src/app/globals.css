@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Custom styles for severity badges */
+.severity-mild {
+  @apply bg-green-100 text-green-800 border border-green-200;
+}
+
+.severity-moderate {
+  @apply bg-yellow-100 text-yellow-800 border border-yellow-200;
+}
+
+.severity-urgent {
+  @apply bg-red-100 text-red-800 border border-red-200;
+}
+
+/* Markdown content styling */
+.prose-content h1 {
+  @apply text-2xl font-bold my-4;
+}
+
+.prose-content h2 {
+  @apply text-xl font-semibold my-3;
+}
+
+.prose-content ul {
+  @apply list-disc pl-5 my-2;
+}
+
+.prose-content li {
+  @apply mb-1;
+}
+
+.prose-content p {
+  @apply my-2;
+}
