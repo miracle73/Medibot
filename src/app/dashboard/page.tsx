@@ -280,10 +280,11 @@ export default function DashboardPage() {
                   Recommended Next Steps
                 </h3>
                 <ul className="list-disc pl-5 space-y-2">
-                  {currentResponse.recommendations.map((rec, idx) => (
+               {currentResponse.recommendations.map((rec, idx) => (
                     <li key={idx} className="text-gray-700">
                       {rec}
-                    ))}
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
