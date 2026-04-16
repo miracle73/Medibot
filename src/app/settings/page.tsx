@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useUser, SignOutButton } from "@clerk/nextjs";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 interface UsageData {
   tier: "free" | "premium";
@@ -127,7 +127,7 @@ export default function SettingsPage() {
 
         <div className="bg-white rounded-lg shadow p-6 mb-6">
           <h2 className="text-xl font-semibold mb-4">Actions</h2>
-          <SignOutButton afterSignOutUrl="/">
+          <SignOutButton redirectUrl="/">
             <button className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded">
               Sign Out
             </button>

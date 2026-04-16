@@ -120,25 +120,28 @@ export default function DashboardPage() {
                   break;
                 case "condition":
                   if (event.condition) {
+                    const newCondition = event.condition;
                     setCurrentResponse((prev) => ({
                       ...prev,
-                      conditions: [...prev.conditions, event.condition],
+                      conditions: [...prev.conditions, newCondition],
                     }));
                   }
                   break;
                 case "severity":
                   if (event.severity) {
+                    const newSeverity = event.severity;
                     setCurrentResponse((prev) => ({
                       ...prev,
-                      severity: event.severity,
+                      severity: newSeverity,
                     }));
                   }
                   break;
                 case "recommendations":
                   if (event.recommendations) {
+                    const newRecommendations = event.recommendations;
                     setCurrentResponse((prev) => ({
                       ...prev,
-                      recommendations: event.recommendations,
+                      recommendations: newRecommendations,
                     }));
                   }
                   break;
@@ -201,7 +204,7 @@ export default function DashboardPage() {
               <span className="text-sm text-gray-600">
                 {user?.firstName || user?.emailAddresses[0]?.emailAddress}
               </span>
-              <SignOutButton afterSignOutUrl="/">
+              <SignOutButton redirectUrl="/">
                 <button className="text-sm text-gray-500 hover:text-gray-700">
                   Sign out
                 </button>

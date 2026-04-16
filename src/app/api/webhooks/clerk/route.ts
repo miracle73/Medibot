@@ -12,6 +12,11 @@ if (!webhookSecret) {
 
 export async function POST(req: Request) {
   try {
+    // Ensure webhookSecret is defined (type guard)
+    if (!webhookSecret) {
+      throw new Error("CLERK_WEBHOOK_SECRET is not configured");
+    }
+
     const headersList = await headers();
     const svix_id = headersList.get("svix-id");
     const svix_timestamp = headersList.get("svix-timestamp");
@@ -39,14 +44,6 @@ export async function POST(req: Request) {
       console.error("Webhook verification failed:", err);
       return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
     }
-
-    // Handle webhook event
-    const event: WebhookEvent = {
-      id: svix_id,
-      type: payload.object,
-      timestamp: payload.timestamp,
-      // ... other fields
-    };
 
     // Process Clerk events
     if (payload.type === "user.created") {

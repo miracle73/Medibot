@@ -1,7 +1,5 @@
 import { sql } from "@vercel/postgres";
 
 export const db = {
-  query: sql,
+  query: (text: string, params?: any[]) => sql.query(text, params),
 };
-
-export type { SQLDatabase } from "@vercel/postgres";
