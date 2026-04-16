@@ -3,6 +3,7 @@ import { SymptomCheckRequest, StreamEvent } from "@/types";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+  baseURL: 'https://openrouter.ai/api/v1',
 });
 
 const SYSTEM_PROMPT = `You are a medical AI assistant for Medibot, a symptom checker tool.
@@ -36,7 +37,7 @@ export async function* analyzeSymptomsStream(
 ): AsyncGenerator<StreamEvent> {
   try {
     const stream = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "openai/gpt-4o-mini",
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: `My symptoms: ${symptoms}` },

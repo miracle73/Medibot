@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useUser, SignOutButton } from "@clerk/nextjs";
+import { useUser, SignOutButton } from '@clerk/nextjs';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { BillingPortalWrapper } from "@/components/billing/BillingPortalWrapper";
 
 interface UsageData {
   tier: "free" | "premium";
@@ -113,9 +114,13 @@ export default function SettingsPage() {
                 </div>
               )}
               {usage.tier === "premium" && (
-                <p className="text-sm text-gray-600">
-                  You have unlimited symptom checks.
-                </p>
+                <div className="space-y-4">
+                  <p className="text-sm text-gray-600">
+                    You have unlimited symptom checks.
+                  </p>
+                  {/* BillingPortal for premium users to manage subscription */}
+                  <BillingPortalWrapper />
+                </div>
               )}
             </div>
           ) : (
