@@ -178,9 +178,9 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto py-8 px-4">
         {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">Symptom Checker</h1>
-          <div className="flex items-center gap-4">
+         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6">
+           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Symptom Checker</h1>
+            <div className="flex flex-wrap items-center gap-3 text-sm">
             {usage && (
               <div className="text-sm">
                 {usage.tier === "free" ? (

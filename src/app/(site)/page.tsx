@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
-import { Footer } from "@/components/layout/Footer";
 
 export default function LandingPage() {
   const { isSignedIn, user } = useUser();
@@ -118,7 +117,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <Footer />
+     
     </div>
   );
 }
